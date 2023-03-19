@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "burger",
+        "path": "assets/burger.jpg",
+        "color": ""
+    },
+    {
+        "id": 2,
+        "name": "pizza",
+        "path": "assets/pizza.jpg",
+        "color": ""
+    },
+    {
+        "id": 3,
+        "name": "cornflakes",
+        "path": "assets/cornflakes.jpg",
+        "color": ""
+    },
+    {
+        "id": 4,
+        "name": "rice_curry",
+        "path": "assets/rice_curry.jpg",
+        "color": ""
+    }
+]

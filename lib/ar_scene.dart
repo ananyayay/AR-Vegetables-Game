@@ -52,7 +52,7 @@ class _ARSceneState extends State<ARScene> {
                         padding: const EdgeInsets.all(8.0),
                         child: ClipRRect(
                           
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(16.0),
                           child: 
                           
                           Container(
