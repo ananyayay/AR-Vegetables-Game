@@ -12,10 +12,10 @@ class MyApp extends StatelessWidget {
       
       title: 'ARCore Demo',
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Checking in'),
-          backgroundColor: Colors.teal,
-        ),
+        // appBar: AppBar(
+        //   title: Text('Checking in'),
+        //   backgroundColor: Colors.teal,
+        // ),
         body: ARScene(),
       ),
       

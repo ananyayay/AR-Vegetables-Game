@@ -16,17 +16,20 @@ class _ARSceneState extends State<ARScene> {
   @override
   Widget build(BuildContext context) {
     // return 
-
+    double heightScreen= MediaQuery.of(context).size.height;
+    double widthScreen= MediaQuery.of(context).size.width;
+    
     return Scaffold(
       body: Container(
         child: Column(
           children: <Widget>[
 
             SizedBox(
-              height: 500.0,
+              height: heightScreen* 0.85,
               child: ArCoreView(
                 onArCoreViewCreated: _onArCoreViewCreated,
                 enableTapRecognizer: true,
+                
               ),
             ),
 
@@ -148,9 +151,9 @@ class _ARSceneState extends State<ARScene> {
                         )
                       ),
                     ),
-                    SizedBox(
-                      width: 15.0,
-                    ),
+                    // SizedBox(
+                    //   width: 15.0,
+                    // ),
                     
             
                   ],
