@@ -1,3 +1,4 @@
+import 'package:ar_vegetables/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
@@ -67,7 +68,11 @@ class _ARSceneState extends State<ARScene> {
                             // padding: EdgeInsets.zero,
                             child: IconButton(
                               padding: EdgeInsets.zero,
-                              onPressed: () {},
+                              onPressed: () {
+                                // Navigator.pushNamed(context, '/loading');
+                                Navigator.push(context, MaterialPageRoute (builder: (context) => Loading()));
+                                
+                              },
                               icon: Image.asset("assets/burger.jpg"),
                             ),
                         
