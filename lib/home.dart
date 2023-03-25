@@ -2,6 +2,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
 import 'ar_scene.dart';
+import 'order.dart';
 
 
 class Home extends StatefulWidget {
@@ -52,7 +53,7 @@ class _MyAppState extends State<Home> {
               ElevatedButton(
                 
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute (builder: (context) => ARScene()));
+                  Navigator.push(context, MaterialPageRoute (builder: (context) => Order()));
                 },
 
                 style: ElevatedButton.styleFrom(
@@ -81,7 +82,7 @@ class _MyAppState extends State<Home> {
               ElevatedButton(
                 
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute (builder: (context) => ARScene()));
+                  Navigator.push(context, MaterialPageRoute (builder: (context) => Order()));
                 },
                 
                 style: ElevatedButton.styleFrom(
