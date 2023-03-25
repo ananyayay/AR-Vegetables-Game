@@ -1,6 +1,7 @@
 import 'package:ar_flutter_plugin/datatypes/node_types.dart';
 import 'package:ar_flutter_plugin/models/ar_node.dart';
 import 'package:ar_vegetables/loading.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
@@ -29,7 +30,7 @@ class _ARSceneState extends State<ARScene> {
           children: <Widget>[
 
             SizedBox(
-              height: heightScreen* 0.85,
+              height: heightScreen,
               // child: ArCoreView(
               //   onArCoreViewCreated: _onArCoreViewCreated,
               //   enableTapRecognizer: true,
@@ -45,136 +46,64 @@ class _ARSceneState extends State<ARScene> {
               
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  
-                  ),
-                
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  
-                  children: <Widget>[
-
-                    SizedBox(
-                      width: 20.0,
-                    ),
-
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.amber,
-                        
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ClipRRect(
-                          
-                          borderRadius: BorderRadius.circular(16.0),
-                          child: 
-                          
-                          Container(
-                            height: 70.0,
-                            width: 70.0,
-                            
-                            child: IconButton(
-                              
-                              padding: EdgeInsets.zero,
-                              onPressed: () {
-                                // Navigator.pushNamed(context, '/loading');
-                                Navigator.push(context, MaterialPageRoute (builder: (context) => Loading()));
-                                
-                              },
-                              icon: Image.asset("assets/images/burger.jpg"),
-                            ),
-                        
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 15.0,
-                    ),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(20.0),
-                      child: Container(
-                        
-                        height: 80.0,
-                        width: 80.0,
-                        color: Color(0xffFF0E58),
-                        child: IconButton(
-                          onPressed: () {},
-                          
-                          icon: Image(
-                            image: AssetImage("assets/images/pizza.jpg"),
-                            
-                          ),
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18.0),
-                                side: BorderSide(color: Colors.teal)
-                              )
-                            )
-                          )
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 15.0,
-                    ),
-                    ClipRRect(
-                      
-                      borderRadius: BorderRadius.circular(20.0),
-                      child: Container(
-                        
-                        height: 80.0,
-                        width: 80.0,
-                        color: Color(0xffFF0E58),
-                        child: ElevatedButton(
-                          
-                          onPressed: (){},
-                          child: Image(
-                            image: AssetImage("assets/images/rice_curry.jpg"),
-                          ),
-                          
-                        ),
-                    
-                      ),
-                    ),
-                    SizedBox(
-                      width: 15.0,
-                    ),
-
-                    ElevatedButton(
-                      
-                      onPressed: () {} ,
-                      style: ElevatedButton.styleFrom(
-                        fixedSize:Size(80, 80),
-                        padding:EdgeInsets.all(8),
-                        
-
-                      ),
-
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10.0),
-                        
-                        child: SizedBox(
-                          // height: 60,
-                          // width: 60,
-                          child: Image(
-                            image: AssetImage("assets/images/rice_curry.jpg"),
-                            
-                            ),
-                        )
-                      ),
-                    ),
-                    // SizedBox(
-                    //   width: 15.0,
-                    // ),
-                    
-            
-                  ],
+                color: Colors.transparent,
                 ),
+                    
+                    
+                child: CarouselSlider(
+
+                  items: [1,2,3,4,5].map((e) {
+                    
+                  // return Container(
+                  //   width: MediaQuery.of(context).size.width,
+
+                  //   margin: EdgeInsets.symmetric(horizontal: 5),
+                  //   decoration: BoxDecoration(color:  Colors.amber,
+                  //     borderRadius: BorderRadius.circular(10)
+                  //   ),
+                  //   // width: 0.1*widthScreen,
+                  //   height: 0.1*widthScreen,
+                  //   child: Center(
+                  //     child: Text("texttt $e",
+                  //     style: TextStyle(fontSize: 40),
+                  //     // style: TextStyle(fontSize: 0.07*widthScreen),
+                    
+                  //     ),
+                  //   ),
+
+                  // );
+                  
+                  return Container(
+                        decoration: BoxDecoration(
+                          color: Colors.amber,
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                
+                        child: Padding(
+                          padding:  EdgeInsets.all( 0.008*heightScreen ),
+
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(16.0),
+                            child: Container(
+                              height: 0.14*heightScreen,
+                              width: 0.12*heightScreen,
+                              child: IconButton(
+                                padding: EdgeInsets.zero,
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute (builder: (context) => Loading()));
+                                },
+                                icon: Image.asset("assets/images/burger.jpg"),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+
+                  }).toList(),
+                        options: CarouselOptions(
+                          height: 0.14*heightScreen,
+                        ),
+                  ),
               ),
             ),
           ],
