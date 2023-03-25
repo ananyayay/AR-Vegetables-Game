@@ -22,15 +22,18 @@ class _ARSceneState extends State<ARScene> {
     
     return Scaffold(
       body: Container(
-        child: Column(
+        child: Stack(
           children: <Widget>[
 
             SizedBox(
               height: heightScreen* 0.85,
-              child: ArCoreView(
-                onArCoreViewCreated: _onArCoreViewCreated,
-                enableTapRecognizer: true,
+              // child: ArCoreView(
+              //   onArCoreViewCreated: _onArCoreViewCreated,
+              //   enableTapRecognizer: true,
                 
+              // ),
+              child: Container(
+                color: Colors.limeAccent,
               ),
             ),
 
@@ -38,10 +41,14 @@ class _ARSceneState extends State<ARScene> {
               padding: const EdgeInsets.all(5.0),
               
               child: Container(
-                
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  
+                  ),
                 
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
+                  
                   children: <Widget>[
 
                     SizedBox(
@@ -51,6 +58,7 @@ class _ARSceneState extends State<ARScene> {
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.amber,
+                        
                         borderRadius: BorderRadius.all(Radius.circular(20)),
                       ),
 
@@ -64,9 +72,9 @@ class _ARSceneState extends State<ARScene> {
                           Container(
                             height: 70.0,
                             width: 70.0,
-                            color: Color(0xffFF0E58),
-                            // padding: EdgeInsets.zero,
+                            
                             child: IconButton(
+                              
                               padding: EdgeInsets.zero,
                               onPressed: () {
                                 // Navigator.pushNamed(context, '/loading');
