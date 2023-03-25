@@ -5,6 +5,7 @@ import 'food.dart';
 import 'ar_scene.dart';
 
 void main() => runApp(MaterialApp(
+  
   initialRoute: '/home',
   routes: {
     '/':(context) => Loading(),

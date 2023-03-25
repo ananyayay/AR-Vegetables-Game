@@ -7,6 +7,9 @@ class Loading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        // title: Text("food here"),
+      ),
       
       body: Center(
         child: Text(

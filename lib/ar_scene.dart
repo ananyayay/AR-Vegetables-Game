@@ -1,3 +1,5 @@
+import 'package:ar_flutter_plugin/datatypes/node_types.dart';
+import 'package:ar_flutter_plugin/models/ar_node.dart';
 import 'package:ar_vegetables/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
@@ -21,6 +23,7 @@ class _ARSceneState extends State<ARScene> {
     double widthScreen= MediaQuery.of(context).size.width;
     
     return Scaffold(
+      
       body: Container(
         child: Stack(
           children: <Widget>[
@@ -81,7 +84,7 @@ class _ARSceneState extends State<ARScene> {
                                 Navigator.push(context, MaterialPageRoute (builder: (context) => Loading()));
                                 
                               },
-                              icon: Image.asset("assets/burger.jpg"),
+                              icon: Image.asset("assets/images/burger.jpg"),
                             ),
                         
                           ),
@@ -102,7 +105,7 @@ class _ARSceneState extends State<ARScene> {
                           onPressed: () {},
                           
                           icon: Image(
-                            image: AssetImage("assets/pizza.jpg"),
+                            image: AssetImage("assets/images/pizza.jpg"),
                             
                           ),
                           style: ButtonStyle(
@@ -131,7 +134,7 @@ class _ARSceneState extends State<ARScene> {
                           
                           onPressed: (){},
                           child: Image(
-                            image: AssetImage("assets/rice_curry.jpg"),
+                            image: AssetImage("assets/images/rice_curry.jpg"),
                           ),
                           
                         ),
@@ -159,7 +162,7 @@ class _ARSceneState extends State<ARScene> {
                           // height: 60,
                           // width: 60,
                           child: Image(
-                            image: AssetImage("assets/rice_curry.jpg"),
+                            image: AssetImage("assets/images/rice_curry.jpg"),
                             
                             ),
                         )
@@ -182,12 +185,20 @@ class _ARSceneState extends State<ARScene> {
 
   void _onArCoreViewCreated(ArCoreController controller) {
     arCoreController = controller;
-     final material = ArCoreMaterial(color: Colors.blue);
-    final sphere = ArCoreSphere(materials: [material], radius: 0.2);
-    final node = ArCoreNode(
-      shape: sphere,
-      position: vector.Vector3(0, 0, -1),
+    // final material = ArCoreMaterial(color: Colors.blue);
+    // final sphere = ArCoreSphere(materials: [material], radius: 0.2);
+    // final node = ArCoreNode(
+    //   shape: sphere,
+    //   position: vector.Vector3(0, 0, -1),
+    // );
+
+    var node = ArCoreReferenceNode(
+      
+      // objectUrl: "assets/models/pizza.gltf"
+      object3DFileName: "assets/models/pizza.gltf"
+
     );
+
     controller.addArCoreNode(node);
 
   }

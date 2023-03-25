@@ -11,33 +11,44 @@ class Home extends StatefulWidget {
 }
 
 class _MyAppState extends State<Home> {
-  @override
   
+  @override  
   Widget build(BuildContext context) {
+    
     double heightScreen= MediaQuery.of(context).size.height;
     double widthScreen= MediaQuery.of(context).size.width;
     
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
+    return MaterialApp( 
+      
       title: 'ARCore Demo',
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Veggies"),
+          toolbarHeight: heightScreen*0.1,
+          title: Text(
+            "VEGGIES",
+            style: TextStyle(
+              fontFamily: "Indie",
+              fontWeight: FontWeight.w900,
+              fontSize: widthScreen*0.1,
+              letterSpacing: widthScreen*0.01
+            ),
+          ),
           centerTitle: true,
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
         ),
         backgroundColor: Colors.yellow,
         
-        // body: ARScene(),
         body: Container(
           child: Column(
             
             mainAxisAlignment: MainAxisAlignment.center,
           
             children: <Widget>[
-              
+              SizedBox(
+                height: heightScreen*0.14,
+              ),
               ElevatedButton(
                 
                 onPressed: () {
@@ -81,7 +92,9 @@ class _MyAppState extends State<Home> {
 
                 child: Text(
                   "How to Play",
+                  
                   style: TextStyle(
+                    
                     letterSpacing: 2.0,
                     fontSize: widthScreen*0.07,
                     fontWeight: FontWeight.bold,
@@ -93,14 +106,18 @@ class _MyAppState extends State<Home> {
 
               ),
 
+              SizedBox(
+                height: heightScreen*0.07,
+              ),
+
               Container(
                 // child:  IconButton(
                 //   onPressed: () => {},
-                //   icon: Image.asset("assets/pizza.png"),
+                //   icon: Image.asset("assets/images/pizza.png"),
                 // ),
-                alignment:Alignment.bottomCenter,
+                
                 child: Image(
-                  image: AssetImage("assets/veggies.png"),
+                  image: AssetImage("assets/images/veggies.png"),
                   
                   ),
               ),
@@ -109,7 +126,8 @@ class _MyAppState extends State<Home> {
           ),
         ),
       ),
-      
+      //DEBUGBANNER FALSE NOT WORKINGGGGGGG
+      debugShowCheckedModeBanner: false,
     );
     
   }
