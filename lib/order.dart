@@ -2,8 +2,9 @@ import 'package:ar_vegetables/dish.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
-import 'ar_scene.dart';
+
 import 'dart:math';
+import 'game.dart';
 
 class Order extends StatefulWidget {
   
@@ -23,6 +24,8 @@ class _MyAppState extends State<Order> {
     var random = Random().nextInt(8);
 
     var person = list[random];
+
+    Game game = Game(1, person, "");
     
 
     return MaterialApp( 
@@ -53,8 +56,6 @@ class _MyAppState extends State<Order> {
           
             children: <Widget>[
               
-
-
               Container(
                 alignment: Alignment.topLeft,
                 // color: Colors.blueAccent,
@@ -118,7 +119,7 @@ class _MyAppState extends State<Order> {
               ElevatedButton(
                 
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute (builder: (context) => Dish()));
+                  Navigator.push(context, MaterialPageRoute (builder: (context) => Dish(game: game)));
                 },
                 
                 style: ElevatedButton.styleFrom(

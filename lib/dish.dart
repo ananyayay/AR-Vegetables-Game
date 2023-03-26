@@ -3,15 +3,27 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
 import 'ar_scene.dart';
 import 'dart:math';
+import 'game.dart';
 
 class Dish extends StatefulWidget {
+  Dish({super.key, required this.game});
+
+  // Declare a field that holds the Todo.
+  Game game;
   
+  
+
   @override
-  State<Dish> createState() => _MyAppState();
+  State<Dish> createState() => _MyAppState(game);
 }
 
 class _MyAppState extends State<Dish> {
   
+  Game game;
+
+  _MyAppState(this.game);
+  
+
   @override  
   Widget build(BuildContext context) {
     
@@ -22,7 +34,9 @@ class _MyAppState extends State<Dish> {
     var random = Random().nextInt(4);
 
     var dishName = list[random];
-    
+
+    game.setDish(dishName);
+
 
     return MaterialApp( 
       
@@ -84,7 +98,7 @@ class _MyAppState extends State<Dish> {
                           Padding(
                             padding: const EdgeInsets.fromLTRB(45, 8, 0, 0),
                             child: Text(
-                              "heee \nhas ordered a \n\n\nAre you ready to make it?",
+                              "${game.person} \nhas ordered a \n\n\nAre you ready to make it?",
                               textAlign: TextAlign.center,
                           
                               style: TextStyle(
@@ -102,7 +116,7 @@ class _MyAppState extends State<Dish> {
                           Padding(
                             padding: const EdgeInsets.fromLTRB(40, 60, 0, 0),
                             child: Text(
-                              dishName,
+                              game.dish,
                               textAlign: TextAlign.center,
                           
                               style: TextStyle(

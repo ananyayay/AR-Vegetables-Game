@@ -34,7 +34,6 @@ class _ARSceneState extends State<ARScene> {
               // child: ArCoreView(
               //   onArCoreViewCreated: _onArCoreViewCreated,
               //   enableTapRecognizer: true,
-                
               // ),
               child: Container(
                 color: Colors.limeAccent,
@@ -61,7 +60,7 @@ class _ARSceneState extends State<ARScene> {
                   //   decoration: BoxDecoration(color:  Colors.amber,
                   //     borderRadius: BorderRadius.circular(10)
                   //   ),
-                  //   // width: 0.1*widthScreen,
+                  // width: 0.1*widthScreen,
                   //   height: 0.1*widthScreen,
                   //   child: Center(
                   //     child: Text("texttt $e",
@@ -74,35 +73,56 @@ class _ARSceneState extends State<ARScene> {
                   // );
                   
                   return Container(
-                        decoration: BoxDecoration(
-                          color: Colors.amber,
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                
-                        child: Padding(
-                          padding:  EdgeInsets.all( 0.008*heightScreen ),
+                    width: MediaQuery.of(context).size.width,
+                    
+                    margin: EdgeInsets.symmetric(horizontal: 5),
+                      decoration: BoxDecoration(color:  Colors.brown[600],
+                      borderRadius: BorderRadius.circular(10)
+                      
+                    ),
+                    
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
 
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(16.0),
-                            child: Container(
-                              height: 0.14*heightScreen,
-                              width: 0.12*heightScreen,
-                              child: IconButton(
-                                padding: EdgeInsets.zero,
-                                onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute (builder: (context) => Loading()));
-                                },
-                                icon: Image.asset("assets/images/burger.jpg"),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.amber,
+                                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                                ),
+                                height: 0.14*heightScreen,
+                                width: 0.14*heightScreen,
+                                child: Padding(
+                                  padding:  EdgeInsets.all( 0.008*heightScreen ),
+                          
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    child: Container(
+                                      
+                                      child: IconButton(
+                                        padding: EdgeInsets.zero,
+                                        onPressed: () {
+                                          Navigator.push(context, MaterialPageRoute (builder: (context) => Loading()));
+                                        },
+                                        icon: Image.asset("assets/images/burger.jpg"),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
+                        ],
                         ),
-                      );
+                    ),
+                    
+                  );
 
                   }).toList(),
                         options: CarouselOptions(
-                          height: 0.14*heightScreen,
+                          height: 0.2*heightScreen,
+                          
                         ),
+                        
                   ),
               ),
             ),
