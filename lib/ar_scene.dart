@@ -46,8 +46,9 @@ class _ARSceneState extends State<ARScene> {
               child: Container(
                 decoration: BoxDecoration(
                 color: Colors.transparent,
+                
                 ),
-                    
+                alignment: Alignment.bottomCenter,    
                     
                 child: CarouselSlider(
 
@@ -55,7 +56,6 @@ class _ARSceneState extends State<ARScene> {
                     
                   // return Container(
                   //   width: MediaQuery.of(context).size.width,
-
                   //   margin: EdgeInsets.symmetric(horizontal: 5),
                   //   decoration: BoxDecoration(color:  Colors.amber,
                   //     borderRadius: BorderRadius.circular(10)
@@ -66,17 +66,15 @@ class _ARSceneState extends State<ARScene> {
                   //     child: Text("texttt $e",
                   //     style: TextStyle(fontSize: 40),
                   //     // style: TextStyle(fontSize: 0.07*widthScreen),
-                    
                   //     ),
                   //   ),
-
                   // );
                   
                   return Container(
                     width: MediaQuery.of(context).size.width,
                     
                     margin: EdgeInsets.symmetric(horizontal: 5),
-                      decoration: BoxDecoration(color:  Colors.brown[600],
+                      decoration: BoxDecoration(color:  Color.fromARGB(255, 3, 171, 154),
                       borderRadius: BorderRadius.circular(10)
                       
                     ),
