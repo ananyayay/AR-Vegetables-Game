@@ -1,17 +1,16 @@
-import 'package:ar_vegetables/dish.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
 import 'ar_scene.dart';
 import 'dart:math';
 
-class Order extends StatefulWidget {
+class Dish extends StatefulWidget {
   
   @override
-  State<Order> createState() => _MyAppState();
+  State<Dish> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<Order> {
+class _MyAppState extends State<Dish> {
   
   @override  
   Widget build(BuildContext context) {
@@ -19,10 +18,10 @@ class _MyAppState extends State<Order> {
     double heightScreen= MediaQuery.of(context).size.height;
     double widthScreen= MediaQuery.of(context).size.width;
     
-    var list = ["Spiderman", "The Mario", "ShinChan", "Mr Jumbo", "Tweety", "Doraemon", "Jerry", "Our Tom"]  ;
-    var random = Random().nextInt(8);
+    var list = ["  PIZZA !", " BURGER", "RICEBOWL", "Sandwich"]  ;
+    var random = Random().nextInt(4);
 
-    var person = list[random];
+    var dishName = list[random];
     
 
     return MaterialApp( 
@@ -53,11 +52,8 @@ class _MyAppState extends State<Order> {
           
             children: <Widget>[
               
-
-
               Container(
                 alignment: Alignment.topLeft,
-                // color: Colors.blueAccent,
 
                 width: widthScreen,
                 height: 0.46*heightScreen,
@@ -67,36 +63,60 @@ class _MyAppState extends State<Order> {
               
                   children: <Widget>[
                     Padding(
-                      padding:  EdgeInsets.all(0.03*widthScreen),
-                      child: Image(
-                        
-                        image: AssetImage("assets/images/dialogue.png"),
-                        width: 760,
-                        alignment: Alignment.topLeft,
+                      padding:  EdgeInsets.fromLTRB(0.07*widthScreen, 0.03*widthScreen, 0, 0),
+                      child: const Image(
+                        image: AssetImage("assets/images/dialogue2.png"),
+                        width: 900,
+                        alignment: Alignment.topCenter,
                       ),
                     ),
                     
               
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 65, 200,20),
+                      padding: const EdgeInsets.fromLTRB(70, 40, 70, 0),
 
                       // padding: const EdgeInsets.all(0.0),
 
-                      child: Container(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          "Hey! $person has placed an order! Let's prepare it!",
-                          textAlign: TextAlign.center,
-
-                          style: TextStyle(
-                            letterSpacing: 0.4,
-                            fontSize: widthScreen*0.056,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Indie',
-                            color: Colors.white,
-                            
-                          ), 
+                      child: Stack(
+                        
+                        children: [
+                          
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(45, 8, 0, 0),
+                            child: Text(
+                              "heee \nhas ordered a \n\n\nAre you ready to make it?",
+                              textAlign: TextAlign.center,
+                          
+                              style: TextStyle(
+                                letterSpacing: 0.4,
+                                fontSize: widthScreen*0.06,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Indie',
+                                color: Colors.white,
+                                height: widthScreen*0.0031,
+                                
+                              ), 
+                            ),
                           ),
+
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(40, 60, 0, 0),
+                            child: Text(
+                              dishName,
+                              textAlign: TextAlign.center,
+                          
+                              style: TextStyle(
+                                letterSpacing: 0.4,
+                                fontSize: widthScreen*0.13,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Indie',
+                                color: Colors.white,
+                                
+                              ), 
+                            ),
+                          ),
+                          
+                        ],
                       ),
                     ),
               
@@ -108,27 +128,27 @@ class _MyAppState extends State<Order> {
 
               Image(
                 
-                image: AssetImage("assets/images/guy.png"),
-                width: 0.45*heightScreen,
+                image: AssetImage("assets/images/guy2.png"),
+                width: 0.4*heightScreen,
                 height: 0.3*heightScreen,
                 // alignment: Alignment(2, ),
-                alignment: Alignment.bottomRight,
+                alignment: Alignment.bottomLeft,
               ),
               
               ElevatedButton(
                 
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute (builder: (context) => Dish()));
+                  Navigator.push(context, MaterialPageRoute (builder: (context) => ARScene()));
                 },
                 
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFE35879),
+                  backgroundColor: const Color(0xFFFF6E29),
                   fixedSize: Size( widthScreen*0.3, heightScreen*0.065),
                   
                 ),
               
                 child: Text(
-                  "NEXT",
+                  "PLAY",
                   
                   style: TextStyle(
                     
