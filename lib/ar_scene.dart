@@ -138,15 +138,47 @@ class _ARSceneState extends State<ARScene> {
     //   shape: sphere,
     //   position: vector.Vector3(0, 0, -1),
     // );
-
     var node = ArCoreReferenceNode(
       
-      // objectUrl: "assets/models/pizza.gltf"
-      object3DFileName: "assets/models/pizza.gltf"
+      objectUrl: "assets/models/pizza.gltf"
+      // object3DFileName: "assets/models/pizza.gltf"
 
     );
-
     controller.addArCoreNode(node);
-
   }
+
+  // void _onArCoreViewCreated(ArCoreController controller) {
+  //   arCoreController = controller;
+    
+  //   ArCoreReferenceNode node = ArCoreReferenceNode(
+  //     name: 'myNode',
+  //     objectUrl: "assets/models/pizza.gltf",
+  //     position: vector.Vector3(0, 0, -1),
+  //     scale: vector.Vector3(10, 10, 10),
+  //   );
+
+  //   arCoreController.addArCoreNode(node);
+
+  //   _addNode();
+
+  // }
+  
+
+  // void _addNode() {
+  //   ArCoreMaterial material = ArCoreMaterial(color: Colors.amber);
+
+  //   ArCoreSphere sphere = ArCoreSphere(
+  //     materials: [material],
+  //     radius: 0.1,
+  //   );
+
+  //   var node = ArCoreNode(
+  //     shape: sphere,
+  //     position: vector.Vector3(0, 0, -2),
+  //     scale: vector.Vector3(1, 1, 1),
+  //   );
+
+  //   arCoreController.addArCoreNode(node);
+  // }
+
 }
