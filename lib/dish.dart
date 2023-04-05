@@ -28,7 +28,7 @@ class _MyAppState extends State<Dish> {
     double heightScreen= MediaQuery.of(context).size.height;
     double widthScreen= MediaQuery.of(context).size.width;
     
-    var list = ["a PIZZA !", "North Indian"]  ;
+    var list = ["one PIZZA !", "North Indian"]  ;
     var random = Random().nextInt(2);
 
     var dishName = list[random];

@@ -22,6 +22,28 @@ class _ARSceneState extends State<ARScene> {
     // return 
     double heightScreen= MediaQuery.of(context).size.height;
     double widthScreen= MediaQuery.of(context).size.width;
+
+    bool isBaseButtonClickable= true;
+    bool isCheeseButtonClickable= false;
+    bool isVeggiesButtonClickable= false;
+    
+    List baseitemList = ["Wheat", "Oats", "Flour"];
+    List cheeseitemList = ["Fat free", "Normal"];
+    List veggiesitemList = ["Tomato", "Capsicum", "Onion"];
+    
+    List itemList= [];
+
+    void setItemList(){
+      if(isBaseButtonClickable==false && isCheeseButtonClickable==false)
+      itemList = veggiesitemList;
+
+      else if(isVeggiesButtonClickable==false && isCheeseButtonClickable==false)
+      itemList = baseitemList;
+
+      else if(isBaseButtonClickable==false && isVeggiesButtonClickable==false)
+      itemList = cheeseitemList;
+    }
+    
     
     return Scaffold(
       
@@ -40,8 +62,139 @@ class _ARSceneState extends State<ARScene> {
               ),
             ),
 
+            
+
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 50.0,0,0),
+              
+              child: Container(
+                decoration: BoxDecoration(
+                color: Colors.transparent,
+                
+                ),
+                alignment: Alignment.topCenter,    
+                    
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  
+
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Opacity(
+                          opacity: isBaseButtonClickable? 1.0:0.2,
+
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.all(Radius.circular(20)),
+                            ),
+                            
+                            height: 0.12*heightScreen,
+                            width: 0.12*heightScreen,
+                            child: Padding(
+                              padding:  EdgeInsets.all( 0.008*heightScreen ),
+                                              
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(16.0),
+                                child: Container(
+                                  
+                                  child: IconButton(
+                                    padding: EdgeInsets.zero,
+                                    onPressed: () {
+                                      Navigator.push(context, MaterialPageRoute (builder: (context) => Loading()));
+                                    },
+                                    icon: Image.asset("assets/images/pizza_base.jpg"),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Opacity(
+                          opacity: isCheeseButtonClickable ? 1.0: 0.55,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.all(Radius.circular(20)),
+                            ),
+                            
+                            height: 0.12*heightScreen,
+                            width: 0.12*heightScreen,
+                            child: Padding(
+                              padding:  EdgeInsets.all( 0.008*heightScreen ),
+                                              
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(16.0),
+                                child: Container(
+                                  
+                                  child: IconButton(
+                                    padding: EdgeInsets.zero,
+                                    onPressed: () {
+                                      Navigator.push(context, MaterialPageRoute (builder: (context) => Loading()));
+                                      if(isCheeseButtonClickable){
+
+                                      }
+                                    },
+                                    icon: Image.asset("assets/images/cheese.jpg"),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Opacity(
+                          opacity: isVeggiesButtonClickable? 1.0:0.55,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.all(Radius.circular(20)),
+                            ),
+                            
+                            height: 0.12*heightScreen,
+                            width: 0.12*heightScreen,
+                            child: Padding(
+                              padding:  EdgeInsets.all( 0.008*heightScreen ),
+                                              
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(16.0),
+                                child: Container(
+                                  
+                                  child: IconButton(
+                                    padding: EdgeInsets.zero,
+                                    onPressed: () {
+                                      Navigator.push(context, MaterialPageRoute (builder: (context) => Loading()));
+                                    },
+                                    icon: Image.asset("assets/images/toppings.png"),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+            
+            
+                    ],
+                    ),
+                
+              ),
+            ),
+
+
+            
+
             Padding(
               padding: const EdgeInsets.all(5.0),
+              
               
               child: Container(
                 decoration: BoxDecoration(
@@ -49,26 +202,16 @@ class _ARSceneState extends State<ARScene> {
                 
                 ),
                 alignment: Alignment.bottomCenter,    
+                
                     
                 child: CarouselSlider(
+                  
+                  
 
-                  items: [1,2,3,4,5].map((e) {
-                    
-                  // return Container(
-                  //   width: MediaQuery.of(context).size.width,
-                  //   margin: EdgeInsets.symmetric(horizontal: 5),
-                  //   decoration: BoxDecoration(color:  Colors.amber,
-                  //     borderRadius: BorderRadius.circular(10)
-                  //   ),
-                  // width: 0.1*widthScreen,
-                  //   height: 0.1*widthScreen,
-                  //   child: Center(
-                  //     child: Text("texttt $e",
-                  //     style: TextStyle(fontSize: 40),
-                  //     // style: TextStyle(fontSize: 0.07*widthScreen),
-                  //     ),
-                  //   ),
-                  // );
+                  
+                  // if(items== []) ? setItemList():"";
+
+                  items: itemList.map((e) {
                   
                   return Container(
                     width: MediaQuery.of(context).size.width,
