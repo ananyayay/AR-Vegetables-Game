@@ -1,0 +1,85 @@
+[
+    {
+        "food": "pizza",
+        "path": "",
+        "ingredients": 
+        [
+            {
+                "type": "base",
+
+                "list":[
+                {
+                    "name": "Wheat",
+                    "score": 30,
+                    "benefits": "this that"
+                },
+        
+                {
+                    "name": "Oats",
+                    "score": 30,
+                    "benefits": "this ee"
+                },
+                
+                {
+                    "name": "Flour",
+                    "score": 30,
+                    "benefits": "this twwwhat"
+                }
+                ]
+                
+            },
+
+            {
+                "type": "cheese",
+
+                "list":[
+                {
+                    "name": "Wheat",
+                    "score": 30,
+                    "benefits": "this that"
+                },
+        
+                {
+                    "name": "Oats",
+                    "score": 30,
+                    "benefits": "this ee"
+                },
+                
+                {
+                    "name": "Flour",
+                    "score": 30,
+                    "benefits": "this twwwhat"
+                }
+                ]
+
+            },
+            
+            {
+                "type": "base",
+
+                "list":[
+                {
+                    "name": "Wheat",
+                    "score": 30,
+                    "benefits": "this that"
+                },
+        
+                {
+                    "name": "Oats",
+                    "score": 30,
+                    "benefits": "this ee"
+                },
+                
+                {
+                    "name": "Flour",
+                    "score": 30,
+                    "benefits": "this twwwhat"
+                }
+            ]
+
+            }
+        ]
+        
+
+    }
+]

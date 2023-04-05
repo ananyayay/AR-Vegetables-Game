@@ -1,28 +1,53 @@
-class Food{
-  int? id;
+class Ingredient{
   String? name;
+  String? score;
+  String? benefits;
+
+  Ingredient({
+    this.name,
+    this.score,
+    this.benefits,
+  });
+
+
+}
+
+class Ingredients{
+  String? type;
+
+  List<Ingredient>? listIngredientTypes;
+
+  Ingredients({
+    this.type,
+    this.listIngredientTypes,
+  });
+
+  // Ingredients.fromJson(Map<String, dynamic> json){
+  // }
+
+}
+
+
+
+class Food{
+  String? food;
   String? path;
-  // String? imageURL;
-  // String? oldPrice;
-  // String? price;
+  List<Ingredients>? listIngredientTypes; //base, cheese, toppings
 
   Food(
       {
-        this.id,
-      this.name,
+      this.food,
       this.path,
-      // this.imageURL,
-      // this.oldPrice,
-      // this.price
+      this.listIngredientTypes,
+
       });
 
   Food.fromJson(Map<String,dynamic> json)
   {
-    id = json['id'];
-    name =json['name'];
+    food =json['food'];
     path = json['path'];
-    // imageURL = json['imageUrl'];
-    // oldPrice = json['oldPrice'];
-    // price = json['price'];
+    listIngredientTypes = json['ingredients'];
+    
+    
   }
 }

@@ -1,9 +1,7 @@
 [
     {
         "id": 1,
-        "name": "burger",
-        "path": "assets/burger.jpg",
-        "color": ""
+        "name": "burger"
     },
     {
         "id": 2,
