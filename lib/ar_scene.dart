@@ -2,6 +2,7 @@
 import 'package:ar_flutter_plugin/datatypes/node_types.dart';
 import 'package:ar_flutter_plugin/models/ar_node.dart';
 import 'package:ar_vegetables/loading.dart';
+import 'package:ar_vegetables/meal_time.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
@@ -105,24 +106,21 @@ class _ARSceneState extends State<ARScene> {
       {
         isVeggiesButtonClickable = true;
         isCheeseButtonClickable = false;
-        print("is it hapening?");
       }
 
       else if(!isVeggiesButtonClickable && !isCheeseButtonClickable && !isBaseButtonClickable){
         isVeggiesButtonClickable= true;
 
       }
-      else if(isVeggiesButtonClickable){
+      
+      else if(isVeggiesButtonClickable && score>=100){
         isVeggiesButtonClickable= false;
+        Navigator.push(context, MaterialPageRoute (builder: (context) => Meal_time()));
+        
 
       }
     }
 
-    void checkScore(){
-      if(score >= 100){
-        // isConfirmButtonClickable= true;
-      }
-    }
 
     void hideInstructions(){
       textVisibility=false;
@@ -243,7 +241,6 @@ class _ARSceneState extends State<ARScene> {
                                   child: IconButton(
                                     padding: EdgeInsets.zero,
                                     onPressed: () {
-                                      Navigator.push(context, MaterialPageRoute (builder: (context) => Loading()));
                                       if(isCheeseButtonClickable){
                                         
 
@@ -415,6 +412,7 @@ class _ARSceneState extends State<ARScene> {
                       
                                 
                       items: itemList.map((e) {
+                        print(itemList);
                       
                       
                       return Container(

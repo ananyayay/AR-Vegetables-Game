@@ -1,3 +1,5 @@
+import 'package:ar_vegetables/meal_time.dart';
+import 'package:ar_vegetables/share_meal.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
 import 'loading.dart';
@@ -13,5 +15,7 @@ void main() => runApp(MaterialApp(
     '/home':(context) => Home(),
     '/order':(context) => Order(),
     '/fooditems':(context) => ARScene(),
+    '/meal':(context) => Meal_time(),
+    '/sharemeal':(context) => Share_meal(),
   }
 ));
