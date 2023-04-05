@@ -31,10 +31,12 @@ class _ARSceneState extends State<ARScene> {
   late ArCoreController arCoreController;
   int score= 0;
 
+  bool currentCard = true;
+
   bool isBaseButtonClickable= true;
     bool isCheeseButtonClickable= false;
     bool isVeggiesButtonClickable= false;
-    bool isButtonClickable= false;
+    bool isConfirmButtonClickable= false;
 
     bool isGotButtonClickable= true;
     bool textVisibility= true;
@@ -42,21 +44,38 @@ class _ARSceneState extends State<ARScene> {
     bool carouselVisibility= false;
     bool linearVisibility= false;
 
-    var scores= {"Wheat": "20", "Oats": "40" };
+
+
+    var scores= {"Wheat": 20, "Oats": 40 };
     var tips= {"Wheat" : "Difficult to digest", "Oats":  "Rich in fibre" };
+    var visibility= {"Wheat" : true, "Oats": true};
+
+    var tempScores= {"Fat-Free": 40, "Dairy": 20 };
+    var tempTips= {"Fat-Free" : "lowers B.P.", "Dairy":  "Causes obesity" };
+    var tempVis= {"Fat-Free" : true, "Dairy": true};
+
+    var temp2Scores= {"Tomato": 20, "Capsicum": 40, "Onion" : 20, "Ketchup": 5 };
+    var temp2Tips= {"Capsicum" : "Vitamin A, B and E", "Ketchup":  "Very high in Sugar", "Onion": "Has antioxidants" , "Tomato": "Vitamin B and E"};
+    var temp2Vis= {"Tomato" : true, "Capsicum": true, "Onion": true, "Ketchup": true};
+
+
+    List cheeseType = ["Fat-Free", "Dairy"];
+    List veggiesType = ["Tomato", "Onion", "Capsicum", "Ketchup"];
+
+    void changeVisibility(String s){
+      visibility[s] = !visibility[s]!;
+      print(s);
+      print(visibility[s]);
+      
+    }
 
     List baseitemList = ["Wheat", "Oats"];
-    List<List> scores2 = [
-      [20,"Difficult to digest "],
-      [40,"Rich in protein"],
-    ];
+    
 
     List cheeseitemList = ["Fat free", "Normal"];
     List veggiesitemList = ["Tomato", "Capsicum", "Onion"];
     
     List itemList= ["Wheat", "Oats"];
-
-    List _items = [];
 
     void SetItemList(){
       if(isBaseButtonClickable==false && isCheeseButtonClickable==false)
@@ -69,9 +88,39 @@ class _ARSceneState extends State<ARScene> {
       itemList = cheeseitemList;
     }
 
-    void checkNext(){
+    void SetTypeVisible(){
+      print("entered settype");
+      print(isBaseButtonClickable);
+      print(isCheeseButtonClickable);
+      print(isVeggiesButtonClickable);
+      
+      
+      if(isBaseButtonClickable==true)
+      {
+        isCheeseButtonClickable= true;
+        isBaseButtonClickable = false;
+      }
+
+      else if(isCheeseButtonClickable== true)
+      {
+        isVeggiesButtonClickable = true;
+        isCheeseButtonClickable = false;
+        print("is it hapening?");
+      }
+
+      else if(!isVeggiesButtonClickable && !isCheeseButtonClickable && !isBaseButtonClickable){
+        isVeggiesButtonClickable= true;
+
+      }
+      else if(isVeggiesButtonClickable){
+        isVeggiesButtonClickable= false;
+
+      }
+    }
+
+    void checkScore(){
       if(score >= 100){
-        // isNextButtonClickable= true;
+        // isConfirmButtonClickable= true;
       }
     }
 
@@ -119,7 +168,6 @@ class _ARSceneState extends State<ARScene> {
               ),
             ),
 
-            
 
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 50.0,0,0),
@@ -134,12 +182,11 @@ class _ARSceneState extends State<ARScene> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   
-
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Opacity(
-                          opacity: isBaseButtonClickable? 1.0:0.2,
+                          opacity: isBaseButtonClickable? 1.0:0.55,
 
                           child: Container(
                             decoration: BoxDecoration(
@@ -198,6 +245,7 @@ class _ARSceneState extends State<ARScene> {
                                     onPressed: () {
                                       Navigator.push(context, MaterialPageRoute (builder: (context) => Loading()));
                                       if(isCheeseButtonClickable){
+                                        
 
                                       }
                                     },
@@ -288,16 +336,40 @@ class _ARSceneState extends State<ARScene> {
                     SizedBox(width: widthScreen*0.04,),
                     
                     Opacity(
-                      opacity: isButtonClickable? 1:0.4,
+                      opacity: isConfirmButtonClickable? 1:0.4,
                       child: ElevatedButton(
                     
                     onPressed: () {
-                      print("helo");
-                      setState(() {
-                          score = score + 10;
-                      });
+                      if(isConfirmButtonClickable){
 
-                      if(isButtonClickable){
+                        SetTypeVisible();
+                        print("clickable set type done");
+
+                        setState(() {
+                          print("entered setstate");
+
+                          if(isCheeseButtonClickable){ 
+                            print("entered cheese");
+                            scores = tempScores;
+                            tips = tempTips;
+                            visibility = tempVis;
+                            itemList = cheeseType;
+                          }
+                          if(isVeggiesButtonClickable){
+                            print("entered veggies");
+                            scores = temp2Scores;
+                            tips = temp2Tips;
+                            visibility = temp2Vis;
+                            itemList = veggiesType;
+                            print("this happen?");
+                          }
+                          if(!isVeggiesButtonClickable && !isBaseButtonClickable && !isCheeseButtonClickable){ 
+                            print("entered all");
+                          } 
+                        }
+                        );
+                        
+
                       }
                     },
                     
@@ -362,7 +434,6 @@ class _ARSceneState extends State<ARScene> {
                                       
                             child: Row(
                               
-                  
                               children: <Widget>[
                                 
                                 Container(
@@ -380,12 +451,29 @@ class _ARSceneState extends State<ARScene> {
                                           borderRadius: BorderRadius.circular(16.0),
                                           child: Container(
                                             
-                                            child: IconButton(
-                                              padding: EdgeInsets.zero,
-                                              onPressed: () {
-                                                Navigator.push(context, MaterialPageRoute (builder: (context) => Loading()));
-                                              },
-                                              icon: Image.asset("assets/images/$e.jpg"),
+                                            child: Opacity(
+                                              opacity: (visibility[e]!)?1:0.5,
+
+                                              child: IconButton(
+                                                padding: EdgeInsets.zero,
+                                                onPressed: () {
+                                                  setState(() {
+                                                    var temp = scores[e]?.toInt()?? 0;
+                                                    if(visibility[e]!){
+                                                      score+= temp;       
+                                                      isConfirmButtonClickable= true;                                               
+                                                    }
+                                                    if(!visibility[e]!){
+                                                      score-= temp;     
+                                                      isConfirmButtonClickable= false;                                                  
+                                                    }
+                                                    changeVisibility(e);
+                                                    
+                                                  });
+                                            
+                                                },
+                                                icon: Image.asset("assets/images/$e.jpg"),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -409,7 +497,7 @@ class _ARSceneState extends State<ARScene> {
                                         ),
                                         
                                         child: Text(
-                                          "${e} Flour",
+                                          "$e ",
                                           style: TextStyle(
                                             color: Colors.white,
                   
