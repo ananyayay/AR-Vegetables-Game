@@ -1,5 +1,9 @@
-
+import 'package:ar_flutter_plugin/ar_flutter_plugin.dart';
 import 'package:ar_flutter_plugin/datatypes/node_types.dart';
+import 'package:ar_flutter_plugin/managers/ar_anchor_manager.dart';
+import 'package:ar_flutter_plugin/managers/ar_location_manager.dart';
+import 'package:ar_flutter_plugin/managers/ar_object_manager.dart';
+import 'package:ar_flutter_plugin/managers/ar_session_manager.dart';
 import 'package:ar_flutter_plugin/models/ar_node.dart';
 import 'package:ar_vegetables/loading.dart';
 import 'package:ar_vegetables/meal_time.dart';
@@ -28,6 +32,13 @@ class ARScene extends StatefulWidget {
 }
 
 class _ARSceneState extends State<ARScene> {  
+
+  late ARSessionManager arSessionManager;
+  late ARObjectManager arObjectManager;
+
+  ARNode? localObject;
+  ARNode? webObject;
+
 
   late ArCoreController arCoreController;
   int score= 0;
@@ -157,10 +168,10 @@ class _ARSceneState extends State<ARScene> {
             
             SizedBox(
               height: heightScreen,
-              // child: ArCoreView(
-              //   onArCoreViewCreated: _onArCoreViewCreated,
-              //   enableTapRecognizer: true,
-              // ),
+              // child: ARView(
+              //   onARViewCreated: onARViewCreated,
+              // )
+              
               child: Container(
                 color: Colors.limeAccent,
               ),
@@ -714,6 +725,26 @@ class _ARSceneState extends State<ARScene> {
       ),
     );
   }
+
+  // void onARViewCreated(ARSessionManager sessionManager, ARObjectManager objectManager, ARAnchorManager arAnchorManager, ARLocationManager arLocationManager){
+  //     this.arSessionManager = arSessionManager;
+  //     this.arObjectManager = arObjectManager;
+
+  //     this.arSessionManager.onInitialize(
+  //       showFeaturePoints: false,
+  //       showPlanes: true,
+  //       // customPlaneTexturePath: 
+
+  //       showWorldOrigin: true,
+  //       handleTaps: false,
+
+  //     );
+
+
+  //     this.arObjectManager.onInitialize();
+
+
+  // }
 
   void _onArCoreViewCreated(ArCoreController controller) {
     arCoreController = controller;
