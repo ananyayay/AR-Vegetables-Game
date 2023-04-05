@@ -20,7 +20,7 @@ class _MyAppState extends State<Order> {
     double heightScreen= MediaQuery.of(context).size.height;
     double widthScreen= MediaQuery.of(context).size.width;
     
-    var list = ["Spiderman", "The Mario", "ShinChan", "Mr Jumbo", "Tweety", "Doraemon", "Jerry", "Our Tom"]  ;
+    var list = ["Spiderman", "The Mario", " ShinChan", "Mr Jumbo", "Our Tweety", "Doraemon", "Jerry", "Our Tom"]  ;
     var random = Random().nextInt(8);
 
     var person = list[random];
@@ -68,7 +68,7 @@ class _MyAppState extends State<Order> {
               
                   children: <Widget>[
                     Padding(
-                      padding:  EdgeInsets.all(0.03*widthScreen),
+                      padding:  EdgeInsets.fromLTRB(30, 52, 0,20),
                       child: Image(
                         
                         image: AssetImage("assets/images/dialogue.png"),
@@ -79,7 +79,7 @@ class _MyAppState extends State<Order> {
                     
               
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 65, 200,20),
+                      padding: const EdgeInsets.fromLTRB(47, 82, 180,20),
 
                       // padding: const EdgeInsets.all(0.0),
 
@@ -107,13 +107,16 @@ class _MyAppState extends State<Order> {
                 
               ),
 
-              Image(
-                
-                image: AssetImage("assets/images/guy.png"),
-                width: 0.45*heightScreen,
-                height: 0.3*heightScreen,
-                // alignment: Alignment(2, ),
-                alignment: Alignment.bottomRight,
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 50, 10),
+                child: Image(
+                  
+                  image: AssetImage("assets/images/guy.png"),
+                  width: 0.45*heightScreen,
+                  height: 0.3*heightScreen,
+                  // alignment: Alignment(2, ),
+                  alignment: Alignment.bottomRight,
+                ),
               ),
               
               ElevatedButton(

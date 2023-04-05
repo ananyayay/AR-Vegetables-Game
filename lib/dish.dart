@@ -11,8 +11,6 @@ class Dish extends StatefulWidget {
   // Declare a field that holds the Todo.
   Game game;
   
-  
-
   @override
   State<Dish> createState() => _MyAppState(game);
 }
@@ -30,8 +28,8 @@ class _MyAppState extends State<Dish> {
     double heightScreen= MediaQuery.of(context).size.height;
     double widthScreen= MediaQuery.of(context).size.width;
     
-    var list = ["  PIZZA !", " BURGER", "RICEBOWL", "Sandwich"]  ;
-    var random = Random().nextInt(4);
+    var list = ["a PIZZA !", "North Indian"]  ;
+    var random = Random().nextInt(2);
 
     var dishName = list[random];
 
@@ -98,12 +96,12 @@ class _MyAppState extends State<Dish> {
                           Padding(
                             padding: const EdgeInsets.fromLTRB(45, 8, 0, 0),
                             child: Text(
-                              "${game.person} \nhas ordered a \n\n\nAre you ready to make it?",
+                              "${game.person} \nhas ordered \n\n\nAre you ready to make it?",
                               textAlign: TextAlign.center,
                           
                               style: TextStyle(
                                 letterSpacing: 0.4,
-                                fontSize: widthScreen*0.06,
+                                fontSize: widthScreen*0.056,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'Indie',
                                 color: Colors.white,
@@ -114,14 +112,14 @@ class _MyAppState extends State<Dish> {
                           ),
 
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(40, 60, 0, 0),
+                            padding: const EdgeInsets.fromLTRB(40, 80, 0, 0),
                             child: Text(
                               game.dish,
                               textAlign: TextAlign.center,
                           
                               style: TextStyle(
                                 letterSpacing: 0.4,
-                                fontSize: widthScreen*0.13,
+                                fontSize: widthScreen*0.09,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'Indie',
                                 color: Colors.white,
